@@ -1,1 +1,0 @@
-import{a5 as e}from"./index-1dad7262.js";const r=e.object({id:e.number().optional(),code:e.string().min(1,"The code is required"),description:e.string().min(1,"The name is required")});export{r as l};
