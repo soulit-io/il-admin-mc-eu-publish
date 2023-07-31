@@ -1,0 +1,120 @@
+#polyglotLanguageSwitcher {
+	margin: 0px; padding: 0px;
+}
+#polyglotLanguageSwitcher * {
+	margin: 0px; padding: 0px;
+}
+#polyglotLanguageSwitcher ul {
+	list-style: none;
+}
+#polyglotLanguageSwitcher ul {
+	list-style: none;
+}
+#polyglotLanguageSwitcher {
+	color: rgb(255, 255, 255); line-height: 20px; font-size: 11px; position: relative; z-index: 100;
+}
+#polyglotLanguageSwitcher form {
+	display: none;
+}
+#polyglotLanguageSwitcher a {
+	background-position: 77px; padding: 7px 0px 7px 10px; width: 130px; color: rgb(255, 255, 255); font-family: AccordAlternate-Bold; text-decoration: none; display: block; background-repeat: no-repeat;
+}
+#polyglotLanguageSwitcher a:hover {
+	color: rgb(235, 237, 238);
+}
+#polyglotLanguageSwitcher a.current:link {
+	position: relative; background-color: transparent;
+}
+#polyglotLanguageSwitcher a.current:visited {
+	position: relative; background-color: transparent;
+}
+#polyglotLanguageSwitcher a.current:active {
+	position: relative; background-color: transparent;
+}
+#polyglotLanguageSwitcher a.current:hover {
+	color: rgb(255, 255, 255); background-color: transparent;
+}
+#polyglotLanguageSwitcher ul.dropdown li:hover {
+	color: rgb(255, 255, 255); background-color: transparent;
+}
+#polyglotLanguageSwitcher a.active {
+	border-bottom-color: currentColor !important; border-bottom-width: medium !important; border-bottom-style: none !important;
+}
+#polyglotLanguageSwitcher span.trigger {
+	top: 1.2em; width: 16px; height: 9px; right: 0px; text-indent: -10000em; display: block; position: absolute;
+}
+#polyglotLanguageSwitcher a.current:link span.trigger {
+	background: url("../images/arrow-down.png") no-repeat left top;
+}
+#polyglotLanguageSwitcher a.current:visited span.trigger {
+	background: url("../images/arrow-down.png") no-repeat left top;
+}
+#polyglotLanguageSwitcher a.current:active span.trigger {
+	background-position: left bottom !important;
+}
+#polyglotLanguageSwitcher a.active span.trigger {
+	background-position: left bottom !important;
+}
+#polyglotLanguageSwitcher ul.dropdown {
+	left: 6px; top: 46px; width: 116px; border-top-color: currentColor !important; border-top-width: medium !important; border-top-style: none !important; display: none; position: absolute; background-color: rgb(91, 103, 113);
+}
+@media screen and (max-width:990px)
+{
+#polyglotLanguageSwitcher ul.dropdown {
+	left: 0px;
+}
+.language-position {
+	left: 0px; top: 0px; position: absolute;
+}
+#polyglotLanguageSwitcher ul.dropdown {
+	border: 0px currentColor; border-image: none; font-size: 12px !important; background-color: transparent;
+}
+#polyglotLanguageSwitcher ul.dropdown li {
+	border-bottom-color: currentColor; border-bottom-width: medium; border-bottom-style: none;
+}
+#polyglotLanguageSwitcher a {
+	background-position: right 54px center; padding: 11px 0px 11px 12px; width: 100%; color: rgb(3, 0, 0); font-family: AccordAlternate-Light; font-size: 17px; background-color: rgb(208, 211, 212);
+}
+#polyglotLanguageSwitcher a:hover {
+	color: rgb(3, 0, 0);
+}
+#polyglotLanguageSwitcher a.current:link {
+	width: 100%;
+}
+#polyglotLanguageSwitcher a.current:visited {
+	width: 100%;
+}
+#polyglotLanguageSwitcher a.current:active {
+	width: 100%;
+}
+#polyglotLanguageSwitcher a.current:link {
+	padding: 20px 0px 20px 12px; color: rgb(255, 255, 255); font-family: AccordAlternate-Bold;
+}
+#polyglotLanguageSwitcher a.current:visited {
+	padding: 20px 0px 20px 12px; color: rgb(255, 255, 255); font-family: AccordAlternate-Bold;
+}
+#polyglotLanguageSwitcher a.current:active {
+	padding: 20px 0px 20px 12px; color: rgb(255, 255, 255); font-family: AccordAlternate-Bold;
+}
+#polyglotLanguageSwitcher span.trigger {
+	top: 1.6em; right: 24px;
+}
+#polyglotLanguageSwitcher a.current:hover {
+	color: rgb(255, 255, 255);
+}
+#polyglotLanguageSwitcher ul.dropdown li:hover {
+	color: rgb(255, 255, 255);
+}
+#polyglotLanguageSwitcher ul.dropdown {
+	top: 63px; width: 100%;
+}
+#polyglotLanguageSwitcher ul.dropdown li {
+	border-top-color: rgb(253, 252, 252); border-top-width: 1px; border-top-style: solid;
+}
+#polyglotLanguageSwitcher ul.dropdown li:first-child {
+	border-top-color: currentColor; border-top-width: medium; border-top-style: none;
+}
+#polyglotLanguageSwitcher .dropdown-menu > li > a {
+	color: red;
+}
+}

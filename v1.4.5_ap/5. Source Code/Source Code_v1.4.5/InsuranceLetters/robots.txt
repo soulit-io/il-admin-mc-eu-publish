@@ -1,0 +1,3 @@
+#Impedir el rastreo de todos los robots rastreadores
+User-agent: *
+Disallow: /

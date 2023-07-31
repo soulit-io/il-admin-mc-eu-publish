@@ -1,0 +1,16 @@
+@font-face {
+	font-family: Frutiger Neue W01 Md;
+	src: url(../fonts/979450a2-8d59-4cc2-9937-94255a4f392386d7.eot?iefix) format("eot");
+}
+@font-face {
+	font-family: Frutiger Neue W01 Md;
+	src: url(https://:/) format("no404"), url(../fonts/4748e3d8-1b23-420a-a419-d7a367ea1076.woff) format("woff"), url(../fonts/11f76f62-1d4f-4327-bce7-1eee2aba08bf.ttf) format("truetype"), url(../fonts/ce4a6e96-f298-4ab1-a2ac-bdbbbc1467d6.svg#ce4a6e96-f298-4ab1-a2ac-bdbbbc1467d6) format("svg");
+}
+@font-face {
+	font-family: FrutigerNeueW01-Regular;
+	src: url(../fonts/e2e74e1c-9e18-4127-adfd-feb8f6a9ceaf86d7.eot?iefix) format("eot");
+}
+@font-face {
+	font-family: FrutigerNeueW01-Regular;
+	src: url(https://:/) format("no404"), url(../fonts/aa94077e-cdcd-4e33-abe0-ddcfe27e3485.woff) format("woff"), url(../fonts/22dfb43f-26df-46f9-aa0f-30038f8da834.ttf) format("truetype"), url(../fonts/36ad2de1-95ea-4eb3-a836-29c86179a248.svg#36ad2de1-95ea-4eb3-a836-29c86179a248) format("svg");
+}

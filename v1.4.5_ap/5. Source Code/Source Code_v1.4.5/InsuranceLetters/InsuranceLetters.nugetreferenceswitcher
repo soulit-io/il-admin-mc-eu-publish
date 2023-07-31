@@ -1,0 +1,2 @@
+InsuranceLettersCommons	../../../insuranceletterscore/InsuranceLettersCommons/InsuranceLettersCommons.csproj	../packages/InsuranceLettersCommons.3.8.2.27786/lib/net48/InsuranceLettersCommons.dll
+InsuranceLettersCore	../../../insuranceletterscore/InsuranceLettersCore/InsuranceLettersCore.csproj	../packages/InsuranceLettersCore.3.8.2.27786/lib/net48/InsuranceLettersCore.dll

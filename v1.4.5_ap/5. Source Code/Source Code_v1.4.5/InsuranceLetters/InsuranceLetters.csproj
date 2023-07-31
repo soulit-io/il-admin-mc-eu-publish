@@ -1,0 +1,1531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{26F76660-5F3A-44DA-B5C1-6B42D1F76D28}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InsuranceLetters</RootNamespace>
+    <AssemblyName>InsuranceLetters</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader">
+      <HintPath>..\packages\ExcelDataReader.3.1.0\lib\net20\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.29.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.29\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="InsuranceLettersCommons, Version=4.1.13.29950, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InsuranceLettersCommons.4.1.13.29950\lib\net48\InsuranceLettersCommons.dll</HintPath>
+    </Reference>
+    <Reference Include="InsuranceLettersCore, Version=4.1.13.29950, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InsuranceLettersCore.4.1.13.29950\lib\net48\InsuranceLettersCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.14.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.14\lib\net40\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.6.1.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.6.1\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Tracing, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Tracing.5.2.7\lib\net45\System.Web.Http.Tracing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="CustomStepHandlers\RenewHandler.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule\JobScheduler.cs" />
+    <Compile Include="Schedule\TicketDueDateEmailJob.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-grid.min.css" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.bundle.js" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.js" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.min.js" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\css\all.css" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\css\all.min.css" />
+    <Content Include="Content\images\24add.png" />
+    <Content Include="Content\images\arrow-down.png" />
+    <Content Include="Content\images\atm-protection.png" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\benefit-img1.jpg" />
+    <Content Include="Content\images\benefit-img2.jpg" />
+    <Content Include="Content\images\benefit-img3.jpg" />
+    <Content Include="Content\images\benefit-img4.jpg" />
+    <Content Include="Content\images\calendar-icon.png" />
+    <Content Include="Content\images\captcha.jpg" />
+    <Content Include="Content\images\car-rental.png" />
+    <Content Include="Content\images\certificate.png" />
+    <Content Include="Content\images\claims.png" />
+    <Content Include="Content\images\close-icon.png" />
+    <Content Include="Content\images\dropdown-img.png" />
+    <Content Include="Content\images\ew.png" />
+    <Content Include="Content\images\flag-espanol.jpg" />
+    <Content Include="Content\images\flag-portuguese-.jpg" />
+    <Content Include="Content\images\flag-usa.jpg" />
+    <Content Include="Content\images\fraudulent-charges.png" />
+    <Content Include="Content\images\logo-mastercard.png" />
+    <Content Include="Content\images\price-protection.png" />
+    <Content Include="Content\images\purchase-protection.png" />
+    <Content Include="Content\images\schengen.png" />
+    <Content Include="Content\images\terms_and_conditions.png" />
+    <Content Include="Content\images\travel-insurance.png" />
+    <Content Include="Content\images\travel-insurance2.png" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-grid.css.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\css\bootstrap.min.css.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.js.map" />
+    <Content Include="Content\css\bootstrap-4.5.2-dist\js\bootstrap.min.js.map" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="connections.config" />
+    <None Include="appSettings.config" />
+    <None Include="appSettings_base.config" />
+    <None Include="connections_base.config" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-v4compatibility.ttf" />
+    <Content Include="Content\fontawesome-free-6.0.0-web\webfonts\fa-v4compatibility.woff2" />
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\DEV.pubxml" />
+    <None Include="Properties\PublishProfiles\QA.pubxml" />
+    <Content Include="Resources\AIGLinkExample.html" />
+    <Content Include="Resources\Images\aig-logo.png" />
+    <Content Include="Resources\Images\bg3.png" />
+    <Content Include="Resources\Images\email-back.png" />
+    <Content Include="Resources\Images\email.png" />
+    <Content Include="Resources\Images\loading_image.gif" />
+    <Content Include="Resources\Images\logo-mastercard.png" />
+    <Content Include="Resources\Images\logo_mc.png" />
+    <Content Include="Resources\Images\mastercard_logo.gif" />
+    <Content Include="Resources\Images\pdf.png" />
+    <Content Include="Resources\Documents\mwi_aus_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_aus_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_aus_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_aus_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_aus_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_zh-cn_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_zh-cn_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_zh-cn_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_zh-cn_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_chn_zh-cn_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_zh-hk_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_zh-hk_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_zh-hk_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_zh-hk_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_hkg_zh-hk_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_in_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_in_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_in_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_in_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_idn_in_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_ko_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_ko_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_ko_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_ko_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_kor_ko_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_zh-hk_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_zh-hk_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_zh-hk_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_zh-hk_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mac_zh-hk_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mys_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mys_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mys_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mys_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_mys_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_nzl_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_nzl_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_nzl_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_nzl_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_nzl_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_phl_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_phl_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_phl_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_phl_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_phl_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_sgp_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_sgp_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_sgp_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_sgp_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_sgp_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_th_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_th_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_th_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_th_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_tha_th_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_zh-hk_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_zh-hk_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_zh-hk_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_zh-hk_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_twn_zh-hk_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_en_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_en_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_en_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_en_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_en_32366_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_vi_32358_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_vi_32360_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_vi_32362_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_vi_32364_faq.pdf" />
+    <Content Include="Resources\Documents\mwi_vnm_vi_32366_faq.pdf" />
+    <None Include="Properties\PublishProfiles\UAT_INTRA.pubxml" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32364_spouse.pdf" />
+    <None Include="Resources\log4net.config" />
+    <Content Include="Resources\Images\arrow-down.png" />
+    <Content Include="Resources\Images\logo-aig.png" />
+    <Content Include="Resources\LetterTemplates\fonts\en.ttf" />
+    <Content Include="Resources\LetterTemplates\fonts\ko.ttf" />
+    <Content Include="Resources\LetterTemplates\fonts\th.ttf" />
+    <Content Include="Resources\LetterTemplates\fonts\zh-cn.ttf" />
+    <Content Include="Resources\LetterTemplates\fonts\zh-hk.ttf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_aus_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_chn_zh-cn_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_hkg_zh-hk_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_idn_in_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_kor_ko_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mac_zh-hk_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_mys_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_nzl_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_phl_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_sgp_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_tha_th_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_twn_zh-hk_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32358_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32360_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32362_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32364_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32366_ipid.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\mwi_vnm_vi_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_aus_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_chn_zh-cn_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_hkg_zh-hk_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_kor_ko_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mac_zh-hk_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_mys_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_nzl_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_phl_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_sgp_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_tha_th_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_en_32366_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32358_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32358_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32358_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32358_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32360_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32360_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32360_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32360_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32362_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32362_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32362_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32362_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32364_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32364_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32364_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32364_terms.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32366_child.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32366_main.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32366_spouse.pdf" />
+    <Content Include="Resources\LetterTemplates\travel_twn_zh-hk_32366_terms.pdf" />
+    <Content Include="Resources\Statics\ap\css\AccordFonts.css" />
+    <Content Include="Resources\Statics\ap\css\css.css" />
+    <Content Include="Resources\Statics\ap\css\fonts.css" />
+    <Content Include="Resources\Statics\ap\css\global.css" />
+    <Content Include="Resources\Statics\ap\css\language-switcher.css" />
+    <Content Include="Resources\Statics\ap\css\push-menu.css" />
+    <Content Include="Resources\Statics\ap\fonts\fontawesome-webfont.svg" />
+    <Content Include="Resources\Statics\ap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Resources\Statics\ap\images\arrow-down.png" />
+    <Content Include="Resources\Statics\ap\images\atm.png" />
+    <Content Include="Resources\Statics\ap\images\calendar-icon.png" />
+    <Content Include="Resources\Statics\ap\images\card-info.png" />
+    <Content Include="Resources\Statics\ap\images\car_rental.png" />
+    <Content Include="Resources\Statics\ap\images\close-icon.png" />
+    <Content Include="Resources\Statics\ap\images\dropdown-img.png" />
+    <Content Include="Resources\Statics\ap\images\loading_image.gif" />
+    <Content Include="Resources\Statics\ap\images\my-certificates.png" />
+    <Content Include="Resources\TokenEncriptador.html" />
+    <Content Include="robots.txt" />
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Resources\Statics\ap\fonts\fontawesome-webfont.eot" />
+    <Content Include="Resources\Statics\ap\fonts\fontawesome-webfont.woff" />
+    <Content Include="Resources\Statics\ap\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Resources\Statics\ap\fonts\FontAwesome.otf" />
+    <Content Include="Resources\Statics\ap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Resources\Statics\ap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Resources\Statics\ap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-Black.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-BlackItalic.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-Bold.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-BoldItalic.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-ExtraLight.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-ExtraLightItalic.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-Italic.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-Light.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-LightItalic.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-Regular.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-SemiBold.ttf" />
+    <Content Include="Resources\Statics\ap\fonts\SourceSansPro-SemiBoldItalic.ttf" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\CommonValidations.js" />
+    <Content Include="Scripts\CSJSRequestObject.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.bootstrap.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.dataTables.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.dataTables.min.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.foundation.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.foundation.min.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.jqueryui.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\css\autoFill.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\autoFill.bootstrap.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\autoFill.foundation.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\autoFill.foundation.min.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\autoFill.jqueryui.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\dataTables.autoFill.js" />
+    <Content Include="Scripts\datatables\AutoFill-2.1.0\js\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.bootstrap.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.dataTables.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.dataTables.min.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.foundation.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.foundation.min.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.jqueryui.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\buttons.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\css\logo_gris.png" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.bootstrap.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.colVis.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.colVis.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.flash.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.flash.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.foundation.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.foundation.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.html5.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.html5.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.jqueryui.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.print.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\buttons.print.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\dataTables.buttons.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\js\dataTables.buttons.min.js" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\logo_gris.png" />
+    <Content Include="Scripts\datatables\Buttons-1.1.0\swf\flashExport.swf" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.bootstrap.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.dataTables.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.dataTables.min.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.foundation.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.foundation.min.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.jqueryui.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\css\colReorder.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\js\dataTables.colReorder.js" />
+    <Content Include="Scripts\datatables\ColReorder-1.3.0\js\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\dataTables.bootstrap.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\dataTables.foundation.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\dataTables.foundation.min.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\dataTables.jqueryui.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\dataTables.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\jquery.dataTables.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\jquery.dataTables.min.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\images\sort_asc.png" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\images\sort_both.png" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\images\sort_desc.png" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\dataTables.foundation.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\jquery.dataTables.js" />
+    <Content Include="Scripts\datatables\DataTables-1.10.10\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\datatables\datatables.css" />
+    <Content Include="Scripts\datatables\datatables.es.txt" />
+    <Content Include="Scripts\datatables\datatables.js" />
+    <Content Include="Scripts\datatables\datatables.min.css" />
+    <Content Include="Scripts\datatables\datatables.min.js" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.bootstrap.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.dataTables.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.foundation.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.foundation.min.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.jqueryui.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\js\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\datatables\FixedColumns-3.2.0\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.bootstrap.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.dataTables.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.foundation.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.foundation.min.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.jqueryui.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\js\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\datatables\FixedHeader-3.1.0\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\datatables\JSZip-2.5.0\jszip.js" />
+    <Content Include="Scripts\datatables\JSZip-2.5.0\jszip.min.js" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.bootstrap.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.dataTables.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.dataTables.min.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.foundation.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.foundation.min.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.jqueryui.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\css\keyTable.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\js\dataTables.keyTable.js" />
+    <Content Include="Scripts\datatables\KeyTable-2.1.0\js\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\datatables\logo_gris.png" />
+    <Content Include="Scripts\datatables\pdfmake-0.1.18\build\pdfmake.js" />
+    <Content Include="Scripts\datatables\pdfmake-0.1.18\build\pdfmake.min.js" />
+    <Content Include="Scripts\datatables\pdfmake-0.1.18\build\vfs_fonts.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.bootstrap.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.dataTables.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.dataTables.min.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.foundation.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.foundation.min.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.jqueryui.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\css\responsive.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\dataTables.responsive.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\dataTables.responsive.min.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\responsive.bootstrap.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\responsive.foundation.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\responsive.foundation.min.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\responsive.jqueryui.js" />
+    <Content Include="Scripts\datatables\Responsive-2.0.0\js\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.bootstrap.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.dataTables.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.dataTables.min.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.foundation.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.foundation.min.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.jqueryui.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\js\dataTables.rowReorder.js" />
+    <Content Include="Scripts\datatables\RowReorder-1.1.0\js\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.bootstrap.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.dataTables.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.dataTables.min.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.foundation.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.foundation.min.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.jqueryui.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\css\scroller.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\js\dataTables.scroller.js" />
+    <Content Include="Scripts\datatables\Scroller-1.4.0\js\dataTables.scroller.min.js" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.bootstrap.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.bootstrap.min.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.dataTables.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.dataTables.min.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.foundation.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.foundation.min.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.jqueryui.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\css\select.jqueryui.min.css" />
+    <Content Include="Scripts\datatables\Select-1.1.0\js\dataTables.select.js" />
+    <Content Include="Scripts\datatables\Select-1.1.0\js\dataTables.select.min.js" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\detect.min.js" />
+    <Content Include="Scripts\FileAClaim.js" />
+    <Content Include="Scripts\getDTMCountryCode.js" />
+    <Content Include="Scripts\ILMaster.js" />
+    <Content Include="Scripts\ion.calendar.js" />
+    <Content Include="Scripts\jquery-1.12.3.min.js" />
+    <Content Include="Scripts\datatables\Portuguese-Brasil.json" />
+    <Content Include="Scripts\datatables\Spanish.json" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\jquery.language.switcher.js" />
+    <Content Include="Scripts\jquery.metadata.js" />
+    <Content Include="Scripts\jquery.numeric.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.locale.es.js" />
+    <Content Include="Scripts\moment.locale.fr.js" />
+    <Content Include="Scripts\moment.locale.pt.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\NumericCheck.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\push-menu.js" />
+    <Content Include="Scripts\spin.min.js" />
+    <Content Include="Scripts\Utils.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\RefreshCache\Index.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\StaticSection\Index.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.config.base" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\uploads\" />
+    <Folder Include="Content\fonts\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InsuranceLettersResources\InsuranceLettersResources.csproj">
+      <Project>{e3099b22-ccb7-4af7-ad98-23e0f9837d84}</Project>
+      <Name>InsuranceLettersResources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\deploy.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52005</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51986/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
