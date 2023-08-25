@@ -1,1 +1,0 @@
-import{a5 as e}from"./index-e4dd56a7.js";const r=e.object({id:e.number().optional(),code:e.string().min(1,"The code is required").max(10,"Code must not exceed 10 characters."),description:e.string().min(1,"The name is required").max(250,"Name must not exceed 250 characters.")});export{r as l};
